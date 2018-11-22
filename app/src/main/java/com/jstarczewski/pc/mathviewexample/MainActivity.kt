@@ -11,8 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var mathView: MathView = findViewById<MathView>(R.id.mvTest) as MathView
-
-        mathView.setText("'$\\x(t)=Asin(ωt+ϕ_o)[m]$, $\\x_{max}=A$ <br> $\\x(t)$ położenie od czasu, $\\A$ amplituda, $\\ω$ częstość kołowa, $\\t$ czas, $\\ϕ_o$ przesunięcie początkowe'")
+        mathView.setText("'$\\M↖{→}=r↖{→}×F↖{→}, $[N*m]$ M↖{→}=rFsinα$ <br> $\\M↖{→}$ moment siły, $\\r↖{→}$ wektor przemieszczenia, $\\F↖{→}$ siła, $\\α$ kąt zawarty między wektorem przemieszczenia a siły'")
 
 
     }
