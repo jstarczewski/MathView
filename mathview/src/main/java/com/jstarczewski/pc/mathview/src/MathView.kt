@@ -21,14 +21,8 @@ class MathView @JvmOverloads constructor(
 
 class MathView : WebView {
 
-    private lateinit var mText: String
     private val path: String = "file:///android_asset/"
-    private val baseStart: String = "<html><head>" +
-            "<link rel='stylesheet' href='" + path + "jqmath-0.4.3.css'>" +
-            "<script src='" + path + "jquery-1.4.3.min.js'></script>" +
-            "<script src='" + path + "jqmath-etc-0.4.5.min.js'></script>" +
-            "</head><body>" +
-            "<script>var s = "
+    private val baseStart: String = "<html><head><link rel='stylesheet' href='" + path + "jqmath-0.4.3.css'><script src='" + path + "jquery-1.4.3.min.js'></script><script src='" + path + "jqmath-etc-0.4.5.min.js'></script></head><body><script>var s = "
     private val baseEnding: String = ";M.parseMath(s);document.body.style.fontSize = \"13pt\";document.body.style.textAlign = \"center\";document.write(s);</script></body>"
 
     constructor(context: Context) : this(context, null)
@@ -45,11 +39,11 @@ class MathView : WebView {
     }
     fun setText(text: String) {
 
-        this.settings.javaScriptEnabled = true
-        this.settings.cacheMode = WebSettings.LOAD_NO_CACHE
-        mText = text
-        Log.e("Text", baseStart+mText+baseEnding)
-        this.loadDataWithBaseURL(path, baseStart + mText + baseEnding, "text/html", "UTF-8", null)
+
+        var js: String ="<html><head><link rel='stylesheet' href='" + path + "jqmath-0.4.3.css'><script src='" + path + "jquery-1.4.3.min.js'></script><script src='" + path + "jqmath-etc-0.4.5.min.js'></script></head><body><script>var s = '$\\ω↖{→}=α/t={2π}/T={2πf}$ $[{rad}/s]$, <br> $\\a↖{→}_s=εr$, $[{rad}/s^2]$';M.parseMath(s);document.body.style.fontSize = \"13pt\";document.body.style.textAlign = \"center\";document.write(s);</script></body>";
+        var js2: String = baseStart + text + baseEnding
+        Log.e("Text", baseStart+text+baseEnding)
+        this.loadDataWithBaseURL(path, js2, "text/html", "UTF-8", null)
 
 /*
         webViews[i].loadDataWithBaseURL("file:///android_asset/", equations.get(i), "text/html", "UTF-8", null);
