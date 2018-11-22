@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+
     <com.jstarczewski.pc.mathview.src.MathView
         android:id="@+id/mvTest"
         android:layout_width="wrap_content"
