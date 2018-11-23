@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         var equations: ArrayList<Equation> = arrayListOf<Equation>()
 
         for (i in 1..20) {
-            equations.add(Equation("Test", "'$\\M↖{→}=r↖{→}×F↖{→}, $[N*m]$ M↖{→}=rFsinα$ <br> $\\M↖{→}$ moment siły, $\\r↖{→}$ wektor przemieszczenia, $\\F↖{→}$ siła, $\\α$ kąt zawarty między wektorem przemieszczenia a siły'"))
+            equations.add(Equation("Test", "'$\\M↖{→}=r↖{→}×F↖{→}, [N*m] M↖{→}=rFsinα$ <br> $\\M↖{→}$ moment siły, $\\R↖{→}$ wektor przemieszczenia, $\\F↖{→}$ siła, $\\α$ kąt zawarty między wektorem przemieszczenia a siły'"))
         }
 
         var viewManager = LinearLayoutManager(this)
@@ -62,8 +62,8 @@ class MathTestAdapter(var equations: ArrayList<Equation>) : RecyclerView.Adapter
 
         viewHolder.tvEquationTitle.text = equations[position].title
         viewHolder.mvEquation.setTextAlign(TextAlign.CENTER)
-        viewHolder.mvEquation.setDisplayedTextSizeInPercentagesBasedOnScreenDpiDensity(70)
-        viewHolder.mvEquation.text(equations[position].equation)
+        viewHolder.mvEquation.setTextSizeBasedOnDpiDensity(80)
+        viewHolder.mvEquation.setText(equations[position].equation)
 
 
     }
