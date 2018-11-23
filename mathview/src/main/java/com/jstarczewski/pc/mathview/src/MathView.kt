@@ -10,10 +10,11 @@ import android.webkit.WebView
 class MathView : WebView {
 
     private val path: String = "file:///android_asset/"
+    private val pathTest: String = ""
     private var mText = "Your equation"
     private var fontSize: Int = 13
     private var textAlign : String = TextAlign.CENTER.toString().toLowerCase()
-    private var mBase: String = "<html><head><link rel='stylesheet' href='" + path + "jqmath-0.4.3.css'><script src='" + path + "jquery-1.4.3.min.js'></script><script src='" + path + "jqmath-etc-0.4.5.min.js'></script></head><body><script>var s = $mText;M.parseMath(s);document.body.style.fontSize = \"$fontSize\";document.body.style.textAlign = \"$textAlign\";document.write(s);</script></body>";
+    private var mBase: String = "<html><head><link rel='stylesheet' href='" + pathTest + "jqmath-0.4.3.css'><script src='" + pathTest + "jquery-1.4.3.min.js'></script><script src='" + pathTest + "jqmath-etc-0.4.5.min.js'></script></head><body><script>var s = $mText;M.parseMath(s);document.body.style.fontSize = \"$fontSize\";document.body.style.textAlign = \"$textAlign\";document.write(s);</script></body>";
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -59,10 +60,11 @@ class MathView : WebView {
 
 
     private fun updateBase() {
-        mBase = "<html><head><link rel='stylesheet' href='" + path + "jqmath-0.4.3.css'><script src='" + path + "jquery-1.4.3.min.js'></script><script src='" + path + "jqmath-etc-0.4.5.min.js'></script></head><body><script>var s = $mText;M.parseMath(s);document.body.style.fontSize = \"$fontSize\";document.body.style.textAlign = \"$textAlign\";document.write(s);</script></body>"
+        mBase = "<html><head><link rel='stylesheet' href='" + pathTest + "jqmath-0.4.3.css'><script src='" + pathTest + "jquery-1.4.3.min.js'></script><script src='" + pathTest + "jqmath-etc-0.4.5.min.js'></script></head><body><script>var s = $mText;M.parseMath(s);document.body.style.fontSize = \"$fontSize\";document.body.style.textAlign = \"$textAlign\";document.write(s);</script></body>"
     }
 }
 
 enum class TextAlign {
     CENTER, LEFT, RIGHT, JUSTIFY
 }
+
