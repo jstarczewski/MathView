@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.jstarczewski.pc.mathview.src.TextAlign
 import kotlinx.android.synthetic.main.match_item.view.*
 
 class MainActivity : AppCompatActivity() {
@@ -60,7 +61,9 @@ class MathTestAdapter(var equations: ArrayList<Equation>) : RecyclerView.Adapter
     override fun onBindViewHolder(viewHolder: MathTestAdapter.ViewHolder, position: Int) {
 
         viewHolder.tvEquationTitle.text = equations[position].title
-        viewHolder.mvEquation.setText(equations[position].equation)
+        viewHolder.mvEquation.setDisplayedTextSizeInPercentagesBasedOnScreenDpiDensity(70)
+        viewHolder.mvEquation.setTextAlign(TextAlign.LEFT)
+        viewHolder.mvEquation.text(equations[position].equation)
 
 
     }
