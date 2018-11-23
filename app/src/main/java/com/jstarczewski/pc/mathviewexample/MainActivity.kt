@@ -61,8 +61,8 @@ class MathTestAdapter(var equations: ArrayList<Equation>) : RecyclerView.Adapter
     override fun onBindViewHolder(viewHolder: MathTestAdapter.ViewHolder, position: Int) {
 
         viewHolder.tvEquationTitle.text = equations[position].title
+        viewHolder.mvEquation.setTextAlign(TextAlign.CENTER)
         viewHolder.mvEquation.setDisplayedTextSizeInPercentagesBasedOnScreenDpiDensity(70)
-        viewHolder.mvEquation.setTextAlign(TextAlign.LEFT)
         viewHolder.mvEquation.text(equations[position].equation)
 
 
