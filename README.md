@@ -1,2 +1,23 @@
-# MathView
-Light Kotlin library viewing math equations in your App
+#MathView
+Simple third-party view library written in `Kotlin` to ease displaying math formulas using [jqMath](https://mathscribe.com/author/jqmath.html). 
+
+##About jqMath
+jqMath is a JavaScript module that makes it easy to put formatted mathematical expressions in web pages. It uses a simple TeX-like syntax, with MathML semantics and is roughly 5 times faster than MathJax (which is actually much bigger). jqMath is lightweight, fast and concise. It is standards-based and cross-browser, using MathML when available, else simple HTML and CSS, and avoiding pixel-map images. Thus pages load quickly, and expressions can be resized by the user, or easily passed to screen reading, graphing, or computer algebra software. 
+
+#Installation
+
+Add below lines to app's build.gradle
+
+```groovy
+repositories {
+	maven { url 'https://jitpack.io' }
+}
+```
+```groovy
+dependencies {
+	implementation 
+}
+```
+#Usage
+
+
