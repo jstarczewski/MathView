@@ -11,6 +11,10 @@ class EditTextExampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_text_example)
 
+        mvEditTextExample.setBackgroundColor("#EEEEEE")
+        mvEditTextExample.setTextColor("Green")
+        mvEditTextExample.setTextSizeBasedOnDpiDensity(80)
+
         btShowEquation?.setOnClickListener {
             mvEditTextExample.setText(etEquation.text.toString())
         }

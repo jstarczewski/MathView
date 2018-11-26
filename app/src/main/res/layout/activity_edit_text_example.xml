@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EEEEEE"
     tools:context=".EditTextExampleActivity">
 
     <com.jstarczewski.pc.mathview.src.MathView
         android:id="@+id/mvEditTextExample"
-        android:layout_margin="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        android:layout_margin="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,10 +23,11 @@
         android:layout_margin="16dp"
         android:autofillHints="false"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@id/btShowRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mvEditTextExample" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btShowEquation"
@@ -40,14 +42,14 @@
 
     <Button
         android:id="@+id/btShowRecyclerView"
-        app:layout_constraintTop_toBottomOf="@id/etEquation"
         android:layout_width="wrap_content"
-        android:text="@string/show_recyclerview"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_marginBottom="132dp"
+        android:text="@string/show_recyclerview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btShowEquation" />
+        app:layout_constraintStart_toEndOf="@id/btShowEquation"
+        app:layout_constraintTop_toBottomOf="@id/etEquation" />
 
 </android.support.constraint.ConstraintLayout>
