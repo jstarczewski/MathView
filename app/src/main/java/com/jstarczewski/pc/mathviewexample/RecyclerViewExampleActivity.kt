@@ -40,7 +40,7 @@ class RecyclerViewExampleActivity : AppCompatActivity() {
 }
 
 
-class MathTestAdapter(var equations: ArrayList<Equation>) : RecyclerView.Adapter<MathTestAdapter.ViewHolder>() {
+class MathTestAdapter(private var equations: ArrayList<Equation>) : RecyclerView.Adapter<MathTestAdapter.ViewHolder>() {
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val tvEquationTitle = view.tvTitle!!
@@ -50,6 +50,9 @@ class MathTestAdapter(var equations: ArrayList<Equation>) : RecyclerView.Adapter
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): MathTestAdapter.ViewHolder {
         val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.match_item, viewGroup, false)
+        val holder: MathTestAdapter.ViewHolder = ViewHolder(view)
+        holder.mvEquation.setBackgroundColor("#EEEEEE")
+        holder.mvEquation.setTextSizeBasedOnDpiDensity(80)
         return ViewHolder(view)
     }
 
@@ -60,8 +63,6 @@ class MathTestAdapter(var equations: ArrayList<Equation>) : RecyclerView.Adapter
     override fun onBindViewHolder(viewHolder: MathTestAdapter.ViewHolder, position: Int) {
 
         viewHolder.tvEquationTitle.text = equations[position].title
-        viewHolder.mvEquation.setTextSizeBasedOnDpiDensity(70)
-        viewHolder.mvEquation.setBackgroundColor("#EEEEE")
         viewHolder.mvEquation.setText(equations[position].equation)
 
 
