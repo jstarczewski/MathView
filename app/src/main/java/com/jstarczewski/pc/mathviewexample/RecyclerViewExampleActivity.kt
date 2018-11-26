@@ -1,6 +1,5 @@
 package com.jstarczewski.pc.mathviewexample
 
-import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -8,7 +7,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.jstarczewski.pc.mathview.src.TextAlign
 import kotlinx.android.synthetic.main.match_item.view.*
 
 class RecyclerViewExampleActivity : AppCompatActivity() {
@@ -52,7 +50,7 @@ class MathTestAdapter(private var equations: ArrayList<Equation>) : RecyclerView
         val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.match_item, viewGroup, false)
         val holder: MathTestAdapter.ViewHolder = ViewHolder(view)
         holder.mvEquation.setBackgroundColor("#EEEEEE")
-        holder.mvEquation.setTextSizeBasedOnDpiDensity(80)
+        holder.mvEquation.setTextZoom(70)
         return ViewHolder(view)
     }
 

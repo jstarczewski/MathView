@@ -2,7 +2,6 @@ package com.jstarczewski.pc.mathview.src
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.os.Build
 import android.util.AttributeSet
 import android.view.View
@@ -12,9 +11,9 @@ import android.webkit.WebView
 class MathView : WebView {
 
     private val path: String = "file:///android_asset/"
-    private var text = " "
+    private var text = ""
     private var percentagesSize = 100
-    private var textAlign: String = TextAlign.CENTER.toString().toLowerCase()
+    private var textAlign: TextAlign = TextAlign.CENTER
     private var textColor: String = ""
     private var backgroundColor: String = ""
 
@@ -41,13 +40,8 @@ class MathView : WebView {
         update()
     }
 
-    fun setTextSizeBasedOnDpiDensity(percentages: Int) {
-        percentagesSize = percentages
-        setInitialScale((resources.displayMetrics.densityDpi) / 100 * percentagesSize)
-    }
-
     fun setTextAlign(textAlign: TextAlign) {
-        this.textAlign = textAlign.toString().toLowerCase()
+        this.textAlign = textAlign
         update()
     }
 
@@ -61,17 +55,26 @@ class MathView : WebView {
         update()
     }
 
+    fun setTextZoom(percentages: Int) {
+        percentagesSize = percentages
+        setInitialScale((resources.displayMetrics.densityDpi) / 100 * percentagesSize)
+    }
+
     fun getText(): String = text
+    fun getTextColor(): String = textColor
+    fun getBackgroundColor(): String = backgroundColor
+    fun getTextAlign(): TextAlign = textAlign
+
 
     private fun update() = loadDataWithBaseURL(path,
             "<html><head><link rel='stylesheet' href='" + path + "jqmath-0.4.3.css'>" +
                     "<script src='" + path + "jquery-1.4.3.min.js'></script>" +
                     "<script src='" + path + "jqmath-etc-0.4.5.min.js'></script>" +
-            "</head><body><script>var s = '$text';" +
-            "M.parseMath(s);document.body.style.color = \"$textColor\";" +
+                    "</head><body><script>var s = '$text';" +
+                    "M.parseMath(s);document.body.style.color = \"$textColor\";" +
                     "document.body.style.background = \"$backgroundColor\";" +
-            "document.body.style.textAlign = \"$textAlign\";" +
-            "document.write(s);</script></body>",
+                    "document.body.style.textAlign = \"${textAlign.toString().toLowerCase()}\";" +
+                    "document.write(s);</script></body>",
             "text/html", "UTF-8", null)
 }
 
