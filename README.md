@@ -35,9 +35,11 @@ dependencies {
 
 ### In Activity
 ```kotlin
-        var mvTest: MathView = findViewById<MathView>(R.id.mvTest)
         mvTest.setTextZoom(120)
         mvTest.setTextColor(Color.GREEN.toString())
         mvTest.setBackgroundColor(Color.WHITE)
-        mvTest.setText"$\\f\'(x)=\\limÎ	
+        mvTest.setText("$\\F&#x2196{&#x2192}=ma_g$)
+
 ```
+
+
