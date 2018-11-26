@@ -1,5 +1,6 @@
 package com.jstarczewski.pc.mathviewexample
 
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -10,15 +11,14 @@ import android.view.ViewGroup
 import com.jstarczewski.pc.mathview.src.TextAlign
 import kotlinx.android.synthetic.main.match_item.view.*
 
-class MainActivity : AppCompatActivity() {
+class RecyclerViewExampleActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_recycler_view_example)
 
 
         var equations: ArrayList<Equation> = arrayListOf<Equation>()
-
         for (i in 1..20) {
             equations.add(Equation("Test", "'$\\M↖{→}=r↖{→}×F↖{→}, [N*m] M↖{→}=rFsinα$ <br> $\\M↖{→}$ moment siły, $\\R↖{→}$ wektor przemieszczenia, $\\F↖{→}$ siła, $\\α$ kąt zawarty między wektorem przemieszczenia a siły'"))
         }

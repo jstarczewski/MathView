@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MathViewExample</string>
+    <string name="show_equation">Show Equation</string>
+    <string name="show_recyclerview">Show RecyclerView</string>
 </resources>
