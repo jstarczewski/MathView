@@ -12,7 +12,7 @@ import android.webkit.WebView
 class MathView : WebView {
 
     private val path: String = "file:///android_asset/"
-    private var text = ""
+    private var text = " "
     private var percentagesSize = 100
     private var textAlign: String = TextAlign.CENTER.toString().toLowerCase()
     private var textColor: String = ""
@@ -67,7 +67,7 @@ class MathView : WebView {
             "<html><head><link rel='stylesheet' href='" + path + "jqmath-0.4.3.css'>" +
                     "<script src='" + path + "jquery-1.4.3.min.js'></script>" +
                     "<script src='" + path + "jqmath-etc-0.4.5.min.js'></script>" +
-            "</head><body><script>var s = $text;" +
+            "</head><body><script>var s = '$text';" +
             "M.parseMath(s);document.body.style.color = \"$textColor\";" +
                     "document.body.style.background = \"$backgroundColor\";" +
             "document.body.style.textAlign = \"$textAlign\";" +

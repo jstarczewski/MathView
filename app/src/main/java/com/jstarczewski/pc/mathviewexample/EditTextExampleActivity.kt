@@ -13,7 +13,6 @@ class EditTextExampleActivity : AppCompatActivity() {
 
         mvEditTextExample.setBackgroundColor("#EEEEEE")
         mvEditTextExample.setTextColor("Green")
-        mvEditTextExample.setTextSizeBasedOnDpiDensity(80)
 
         btShowEquation?.setOnClickListener {
             mvEditTextExample.setText(etEquation.text.toString())
