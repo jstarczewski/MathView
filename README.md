@@ -1,9 +1,27 @@
 # MathView
-Simple and light third-party view library written in `Kotlin` to ease displaying math formulas using [jqMath](https://mathscribe.com/author/jqmath.html). MathView works similar to other math-rendering libraries, but it allows user to customize the text a bit more. 
+Simple and light third-party view library written in `Kotlin` to ease displaying math formulas using [jqMath](https://mathscribe.com/author/jqmath.html). `MathView` is based on `WebView` and works similar to other math-rendering libraries, but it allows user to customize the text a bit more.  
 
-## About jqMath
+# Why jqMath and why I created this library ?
+Back in 2016 I created an Android App which contained a lot of equations rendered with jqMath. I plan to rerelease the app and it is easier for me to write this simple library rather than convert all my equations to fit other rendering engine. `MathView` is my first Android library and writing it is a great fun for me. I'm currently learning Kotlin so if you see situations where I am not using Kotlin's full potential, feel free to contribute.
+
+## About [jqMath](https://mathscribe.com/author/jqmath.html)
 jqMath is a JavaScript module that makes it easy to put formatted mathematical expressions in web pages. It uses a simple TeX-like syntax, with MathML semantics and is roughly 5 times faster than MathJax (which is actually much bigger). jqMath is lightweight, fast and concise. It is standards-based and cross-browser, using MathML when available, else simple HTML and CSS, and avoiding pixel-map images. Thus pages load quickly, and expressions can be resized by the user, or easily passed to screen reading, graphing, or computer algebra software. 
 
+## Building equations
+The HTML source patterns that will result in math equations can be checked [here](https://mathscribe.com/author/jqmath.html). 
+
+### Referencing characters
+All HTML characters can be added by Unicode code point (decimal) reference.
+```html
+	&#x2297 = Î
+```
+There is no need to add every special character by [Unicode](https://www.w3schools.com/charsets/ref_utf_misc_symbols.asp) reference. The HTML characters can be copied straight into your code. Referencing is handy when you are entering characters with `EditText` widget.
+
+### Kotlin String interpolation
+When building equations in Kotlin sometimes double backslash is needed to escape Kotlin String Interpolation
+```kotlin
+	var math = "$\\F&#2196{&#x2192}=ma_g$"
+```
 # Demo
 ![Demo RecyclerView](/MathViewGif.gif)
 
@@ -24,7 +42,7 @@ dependencies {
 # Usage
 `MathView` works nearly as `TextView`. It renders math equation with MathML semantics.
 
-## In layout file: 
+## In layout file 
 
 ```xml
 	<com.jstarczewski.pc.mathview.src.MathView
@@ -33,13 +51,25 @@ dependencies {
         android:layout_height="wrap_content"/>
 ```
 
-### In Activity
+## In Activity
+
 ```kotlin
         mvTest.setTextZoom(120)
         mvTest.setTextColor(Color.GREEN.toString())
         mvTest.setBackgroundColor(Color.WHITE)
-        mvTest.setText("$\\F&#x2196{&#x2192}=ma_g$)
+        mvTest.setText("$\\F&#x2196{&#x2192}=ma_g$")
 
 ```
+# Interface
+There are currently five custom functions available for the user. I plan to refactor them to fit more in Kotlin style.
 
+```kotlin
+	fun setText(text: String) // displays equation passed as argument on MathView
+	fun setTextAlign(textAlign: TextAlign) // sets text alignments to one of four possibilities CENTER(default), LEFT, RIGHT, JUSTIFY
+	fun setTextColor(color: String) // sets textColor to value passed as argument e.g. "#EEEEEE", "blue", Color.WHITE.toString() etc. Default black
+	fun setBackgroundColor(color: String) // works like setTextColor, but sets color to background, default white
+	fun setTextZoom(percentages: Int) // sets textZoom (size) based on screens density pixels. Default 100 (normal size)
+```
 
+# Contributing
+Feel free to contribute and report issues. Feedback appreciated
