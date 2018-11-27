@@ -49,9 +49,14 @@ class MathTestAdapter(private var equations: ArrayList<Equation>) : RecyclerView
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): MathTestAdapter.ViewHolder {
         val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.match_item, viewGroup, false)
         val holder: MathTestAdapter.ViewHolder = ViewHolder(view)
-        holder.mvEquation.setBackgroundColor("#EEEEEE")
-        holder.mvEquation.setTextZoom(70)
+        holder.mvEquation.apply {
+            textColor = "#black"
+            backgroundColor = "white"
+            textZoom = 70
+        }
         return ViewHolder(view)
+
+
     }
 
     override fun getItemCount(): Int {
@@ -61,7 +66,8 @@ class MathTestAdapter(private var equations: ArrayList<Equation>) : RecyclerView
     override fun onBindViewHolder(viewHolder: MathTestAdapter.ViewHolder, position: Int) {
 
         viewHolder.tvEquationTitle.text = equations[position].title
-        viewHolder.mvEquation.setText(equations[position].equation)
+        viewHolder.mvEquation.text = equations[position].equation
+        viewHolder.mvEquation.update()
 
 
     }

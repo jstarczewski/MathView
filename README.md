@@ -1,9 +1,6 @@
 # MathView
 Simple and light third-party view library written in `Kotlin` to ease displaying math formulas using [jqMath](https://mathscribe.com/author/jqmath.html). `MathView` is based on `WebView` and works similar to other math-rendering libraries, but it allows user to customize the text a bit more.  
 
-# Why jqMath and why I created this library ?
-Back in 2016 I created an Android App which contained a lot of equations rendered with jqMath. I plan to rerelease the app and it is easier for me to write this simple library rather than convert all my equations to fit other rendering engine. `MathView` is my first Android library and writing it is a great fun for me. I'm currently learning Kotlin so if you see situations where I am not using Kotlin's full potential, feel free to contribute.
-
 ## About [jqMath](https://mathscribe.com/author/jqmath.html)
 jqMath is a JavaScript module that makes it easy to put formatted mathematical expressions in web pages. It uses a simple TeX-like syntax, with MathML semantics and is roughly 5 times faster than MathJax (which is actually much bigger). jqMath is lightweight, fast and concise. It is standards-based and cross-browser, using MathML when available, else simple HTML and CSS, and avoiding pixel-map images. Thus pages load quickly, and expressions can be resized by the user, or easily passed to screen reading, graphing, or computer algebra software. 
 
@@ -36,7 +33,7 @@ repositories {
 ```
 ```groovy
 dependencies {
-	implementation 'com.github.jstarczewski:MathView:0.2.0'
+	implementation 'com.github.jstarczewski:MathView:0.2.1'
 }
 ```
 # Usage
@@ -54,22 +51,46 @@ dependencies {
 ## In Activity
 
 ```kotlin
-        mvTest.setTextZoom(120)
-        mvTest.setTextColor(Color.GREEN.toString())
-        mvTest.setBackgroundColor(Color.WHITE)
-        mvTest.setText("$\\F&#x2196{&#x2192}=ma_g$")
+        mvTest.apply {
+		textZoom = 120
+        	textColor = Color.GREEN.toString()
+    	    	backgroundColor = Color.WHITE
+		text = "$\\F&#x2196{&#x2192}=ma_g$"
+	}.updaet()
 
 ```
+## Or set text directly in xml
+
+Remember to encode HTML special characters when referencing with xml `& = &amp;`
+
+```xml
+	<com.jstarczewski.pc.mathview.src.MathView
+        android:id="@+id/mvTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+	app:text="$F=mg$"/>
+```
+
+
 # Interface
 There are currently five custom functions available for the user. I plan to refactor them to fit more in Kotlin style.
 
 ```kotlin
-	fun setText(text: String) // displays equation passed as argument on MathView
-	fun setTextAlign(textAlign: TextAlign) // sets text alignments to one of four possibilities CENTER(default), LEFT, RIGHT, JUSTIFY
-	fun setTextColor(color: String) // sets textColor to value passed as argument e.g. "#EEEEEE", "blue", Color.WHITE.toString() etc. Default black
-	fun setBackgroundColor(color: String) // works like setTextColor, but sets color to background, default white
-	fun setTextZoom(percentages: Int) // sets textZoom (size) based on screens density pixels. Default 100 (normal size)
+	// Apply properties, then call update()
+        var mathView : MathView = findViewById<MathView>(R.id.mvEditTextExample)
+        mathView.apply {
+            text = "$\\F=10$"
+            textColor = "red"
+        }.update()
+
+	// Only after setting textZoom property there is no need to call update()
+        mathView.textZoom = 120
 ```
+
+# Why jqMath and why I created this library ?
+Back in 2016 I created an Android App which contained a lot of equations rendered with jqMath. I plan to rerelease the app and it is easier for me to write this simple library rather than convert all my equations to fit other rendering engine. `MathView` is my first Android library and writing it is a great fun for me. I'm currently learning Kotlin so if you see situations where I am not using Kotlin's full potential, feel free to contribute.
+
+
 
 # Contributing
 Feel free to contribute and report issues. Feedback appreciated

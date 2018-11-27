@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.webkit.WebSettings
 import android.webkit.WebView
+import com.jstarczewski.pc.mathview.R
 
 class MathView : WebView {
 
@@ -27,29 +28,23 @@ class MathView : WebView {
         else
             setLayerType(View.LAYER_TYPE_SOFTWARE, null)
         setInitialScale(resources.displayMetrics.densityDpi)
-
-        
+        if (attrs!=null) {
+           val text = context.obtainStyledAttributes(attrs, R.styleable.MathView)
+            if (text.hasValue(R.styleable.MathView_text)) {
+                this.text = text.getString(R.styleable.MathView_text)
+                update()
+            }
+        }
     }
 
     var text: String = ""
-        set(value) {
-            update()
-        }
+
 
     var textAlign: TextAlign = TextAlign.CENTER
-        set(value) {
-            update()
-        }
 
-    var textColor: String = ""
-        set(value) {
-            update()
-        }
+    var textColor: String = "Black"
 
-    var backgroundColor: String = ""
-        set(value) {
-            update()
-        }
+    var backgroundColor: String = "White"
 
     var textZoom: Int = 100
         set(value) {
@@ -57,7 +52,7 @@ class MathView : WebView {
         }
 
 
-    private fun update() = loadDataWithBaseURL(path,
+    fun update() = loadDataWithBaseURL(path,
             "<html><head><link rel='stylesheet' href='" + path + "jqmath-0.4.3.css'>" +
                     "<script src='" + path + "jquery-1.4.3.min.js'></script>" +
                     "<script src='" + path + "jqmath-etc-0.4.5.min.js'></script>" +

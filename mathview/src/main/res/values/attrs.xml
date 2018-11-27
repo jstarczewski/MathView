@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--
     <attr name="textZoom" format="integer"/>
     <attr name="background" format="string"/>
-    <attr name="textColor" format="string"/>
-    <attr name="text" format= "string" localization="suggested"/>
+    <attr name="textColor" format="string"/> -->
+    <declare-styleable name="MathView">
+        <attr name="text" format="string" localization="suggested" />
+    </declare-styleable>
 
 </resources>
