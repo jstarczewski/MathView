@@ -11,11 +11,6 @@ import android.webkit.WebView
 class MathView : WebView {
 
     private val path: String = "file:///android_asset/"
-    private var text = ""
-    private var percentagesSize = 100
-    private var textAlign: TextAlign = TextAlign.CENTER
-    private var textColor: String = ""
-    private var backgroundColor: String = ""
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -33,37 +28,33 @@ class MathView : WebView {
             setLayerType(View.LAYER_TYPE_SOFTWARE, null)
         setInitialScale(resources.displayMetrics.densityDpi)
 
+        
     }
 
-    fun setText(text: String) {
-        this.text = text
-        update()
-    }
+    var text: String = ""
+        set(value) {
+            update()
+        }
 
-    fun setTextAlign(textAlign: TextAlign) {
-        this.textAlign = textAlign
-        update()
-    }
+    var textAlign: TextAlign = TextAlign.CENTER
+        set(value) {
+            update()
+        }
 
-    fun setBackgroundColor(color: String) {
-        backgroundColor = color
-        update()
-    }
+    var textColor: String = ""
+        set(value) {
+            update()
+        }
 
-    fun setTextColor(color: String) {
-        textColor = color
-        update()
-    }
+    var backgroundColor: String = ""
+        set(value) {
+            update()
+        }
 
-    fun setTextZoom(percentages: Int) {
-        percentagesSize = percentages
-        setInitialScale((resources.displayMetrics.densityDpi) / 100 * percentagesSize)
-    }
-
-    fun getText(): String = text
-    fun getTextColor(): String = textColor
-    fun getBackgroundColor(): String = backgroundColor
-    fun getTextAlign(): TextAlign = textAlign
+    var textZoom: Int = 100
+        set(value) {
+            setInitialScale((resources.displayMetrics.densityDpi) / 100 * value)
+        }
 
 
     private fun update() = loadDataWithBaseURL(path,
