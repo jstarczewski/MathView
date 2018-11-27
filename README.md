@@ -56,7 +56,7 @@ dependencies {
         	textColor = Color.GREEN.toString()
     	    	backgroundColor = Color.WHITE
 		text = "$\\F&#x2196{&#x2192}=ma_g$"
-	}.updaet()
+	}.update()
 
 ```
 ## Or set text directly in xml
@@ -79,12 +79,13 @@ There are currently five custom functions available for the user. I plan to refa
 	// Apply properties, then call update()
         var mathView : MathView = findViewById<MathView>(R.id.mvEditTextExample)
         mathView.apply {
-            text = "$\\F=10$"
-            textColor = "red"
+            text = "$\\F=10$" // sets text
+            textColor = "red" // sets text color, default value is "black"
+	    backgroundColor = "blue" // sets background color, default value is "white"
         }.update()
 
 	// Only after setting textZoom property there is no need to call update()
-        mathView.textZoom = 120
+        mathView.textZoom = 120 // set text size based on pixel density, default value is 100 (%)
 ```
 
 # Why jqMath and why I created this library ?
