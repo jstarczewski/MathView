@@ -28,16 +28,16 @@ class MathView : WebView {
         else
             setLayerType(View.LAYER_TYPE_SOFTWARE, null)
         setInitialScale(resources.displayMetrics.densityDpi)
+
         if (attrs!=null) {
-           var math = context.obtainStyledAttributes(attrs, R.styleable.MathView)
+           var math = context?.obtainStyledAttributes(attrs, R.styleable.MathView)
             if (math.hasValue(R.styleable.MathView_math)) {
                 this.math = math.getString(R.styleable.MathView_math)
-                update()
             }
         }
     }
 
-    var math: String = ""
+    var math : String? = ""
 
     var textAlign: TextAlign = TextAlign.CENTER
 
