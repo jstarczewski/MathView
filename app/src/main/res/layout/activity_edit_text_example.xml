@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_margin="16dp"
-        app:text="$E_k={mv^2}/2$, $[kg * m^2/{s^2}=J]$ <br> $E_k$ energia kinetyczna, $m$ masa, $v↖{→}$ prędkość, jednostka energi to dżul $J$"
+        app:math="$E_k={mv^2}/2$, $[kg * m^2/{s^2}=J]$ $E_k$ energia kinetyczna, $m$ masa, $v↖{→}$ prędkość, jednostka energi to dżul $J$"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

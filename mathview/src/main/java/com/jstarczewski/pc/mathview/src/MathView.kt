@@ -29,16 +29,15 @@ class MathView : WebView {
             setLayerType(View.LAYER_TYPE_SOFTWARE, null)
         setInitialScale(resources.displayMetrics.densityDpi)
         if (attrs!=null) {
-           val text = context.obtainStyledAttributes(attrs, R.styleable.MathView)
-            if (text.hasValue(R.styleable.MathView_text)) {
-                this.text = text.getString(R.styleable.MathView_text)
+           var math = context.obtainStyledAttributes(attrs, R.styleable.MathView)
+            if (math.hasValue(R.styleable.MathView_math)) {
+                this.text = math.getString(R.styleable.MathView_math)
                 update()
             }
         }
     }
 
     var text: String = ""
-
 
     var textAlign: TextAlign = TextAlign.CENTER
 
