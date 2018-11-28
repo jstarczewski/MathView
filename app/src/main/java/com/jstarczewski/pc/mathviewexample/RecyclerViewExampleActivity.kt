@@ -66,7 +66,7 @@ class MathTestAdapter(private var equations: ArrayList<Equation>) : RecyclerView
     override fun onBindViewHolder(viewHolder: MathTestAdapter.ViewHolder, position: Int) {
 
         viewHolder.tvEquationTitle.text = equations[position].title
-        viewHolder.mvEquation.text = equations[position].equation
+        viewHolder.mvEquation.math = equations[position].equation
         viewHolder.mvEquation.update()
 
 

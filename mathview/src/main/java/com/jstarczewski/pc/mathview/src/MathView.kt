@@ -31,13 +31,13 @@ class MathView : WebView {
         if (attrs!=null) {
            var math = context.obtainStyledAttributes(attrs, R.styleable.MathView)
             if (math.hasValue(R.styleable.MathView_math)) {
-                this.text = math.getString(R.styleable.MathView_math)
+                this.math = math.getString(R.styleable.MathView_math)
                 update()
             }
         }
     }
 
-    var text: String = ""
+    var math: String = ""
 
     var textAlign: TextAlign = TextAlign.CENTER
 
@@ -55,7 +55,7 @@ class MathView : WebView {
             "<html><head><link rel='stylesheet' href='" + path + "jqmath-0.4.3.css'>" +
                     "<script src='" + path + "jquery-1.4.3.min.js'></script>" +
                     "<script src='" + path + "jqmath-etc-0.4.5.min.js'></script>" +
-                    "</head><body><script>var s = '$text';" +
+                    "</head><body><script>var s = '$math';" +
                     "M.parseMath(s);document.body.style.color = \"$textColor\";" +
                     "document.body.style.background = \"$backgroundColor\";" +
                     "document.body.style.textAlign = \"${textAlign.toString().toLowerCase()}\";" +
