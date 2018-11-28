@@ -33,6 +33,7 @@ class MathView : WebView {
            var math = context?.obtainStyledAttributes(attrs, R.styleable.MathView)
             if (math.hasValue(R.styleable.MathView_math)) {
                 this.math = math.getString(R.styleable.MathView_math)
+                update()
             }
         }
     }

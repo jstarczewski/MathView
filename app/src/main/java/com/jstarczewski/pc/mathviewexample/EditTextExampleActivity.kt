@@ -16,7 +16,7 @@ class EditTextExampleActivity : AppCompatActivity() {
         btShowEquation?.setOnClickListener {
 
             mvEditTextExample.apply {
-                mvEetEquation.text.toString()
+                mvEditTextExample.math = etEquation.text.toString()
             }.update()
 
         }
