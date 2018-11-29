@@ -6,7 +6,7 @@
     <attr name="background" format="string"/>
     <attr name="textColor" format="string"/> -->
     <declare-styleable name="MathView">
-        <attr name="math" format="string"/>
+        <attr name="text" format="string"/>
     </declare-styleable>
 
 </resources>
