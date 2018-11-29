@@ -1,5 +1,5 @@
 # MathView
-Simple and light third-party view library written in `Kotlin` to ease displaying math formulas using [jqMath](https://mathscribe.com/author/jqmath.html). `MathView` is based on `WebView` and works similar to other math-rendering libraries, but it allows user to customize the text a bit more.  
+Simple and light third-party view library written in `Kotlin` to ease displaying math formulas using [jqMath](https://mathscribe.com/author/jqmath.html). `MathView` is based on `WebView` and works similar to other math-rendering libraries, but it is compatible with Android DataBinding Library and allows user to customize the text a bit more.  
 
 ## About [jqMath](https://mathscribe.com/author/jqmath.html)
 jqMath is a JavaScript module that makes it easy to put formatted mathematical expressions in web pages. It uses a simple TeX-like syntax, with MathML semantics and is roughly 5 times faster than MathJax (which is actually much bigger). jqMath is lightweight, fast and concise. It is standards-based and cross-browser, using MathML when available, else simple HTML and CSS, and avoiding pixel-map images. Thus pages load quickly, and expressions can be resized by the user, or easily passed to screen reading, graphing, or computer algebra software. 
@@ -59,9 +59,9 @@ dependencies {
 	}.update()
 
 ```
-## Or set text directly in xml
+## Set text directly in xml
 
-Remember to encode HTML special characters when referencing with xml `& = &amp;`
+While setting text directly in XML, remember to encode HTML special characters, for example : `& = &amp;`
 
 ```xml
 	<com.jstarczewski.pc.mathview.src.MathView
