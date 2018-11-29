@@ -10,7 +10,7 @@ The HTML source patterns that will result in math equations can be checked [here
 ### Referencing characters
 All HTML characters can be added by Unicode code point (decimal) reference.
 ```html
-	&#x2297 = Î
+	&#x2297 = âŠ—
 ```
 There is no need to add every special character by [Unicode](https://www.w3schools.com/charsets/ref_utf_misc_symbols.asp) reference. The HTML characters can be copied straight into your code. Referencing is handy when you are entering characters with `EditText` widget.
 
@@ -82,9 +82,9 @@ There are currently five custom functions available for the user. I plan to refa
             text = "$\\F=10$" // sets text
             textColor = "red" // sets text color, default value is "black"
 	    backgroundColor = "blue" // sets background color, default value is "white"
-        }.update()
+        }.update() // updates changes 
 
-	// Only after setting textZoom property there is no need to call update()
+	// There is no need to call update() after setting textZoom property
         mathView.textZoom = 120 // set text size based on pixel density, default value is 100 (%)
 ```
 
