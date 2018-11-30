@@ -33,7 +33,7 @@ repositories {
 ```
 ```groovy
 dependencies {
-	implementation 'com.github.jstarczewski:MathView:0.2.1'
+	implementation 'com.github.jstarczewski:MathView:0.3.0'
 }
 ```
 # Usage
