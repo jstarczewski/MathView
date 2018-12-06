@@ -52,7 +52,7 @@ class MathTestAdapter(private var equations: ArrayList<Equation>) : RecyclerView
         val holder: MathTestAdapter.ViewHolder = ViewHolder(view)
         holder.mvEquation.apply {
             textColor = "black"
-            backgroundColor = "white"
+            backgroundColor = "#EEEEEE"
             textZoom = 70
         }
         return ViewHolder(view)
@@ -68,7 +68,6 @@ class MathTestAdapter(private var equations: ArrayList<Equation>) : RecyclerView
 
         viewHolder.tvEquationTitle.text = equations[position].title
         viewHolder.mvEquation.text = equations[position].equation
-        viewHolder.mvEquation.update()
 
 
     }

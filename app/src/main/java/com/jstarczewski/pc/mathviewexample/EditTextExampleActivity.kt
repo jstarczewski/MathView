@@ -12,9 +12,7 @@ class EditTextExampleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit_text_example)
 
         mvEditTextExample.textZoom = 70
-
-
-        mvEditTextExample.textC
+        mvEditTextExample.backgroundColor = "#EEEEEE"
 
         btShowEquation?.setOnClickListener {
 
