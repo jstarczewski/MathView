@@ -51,7 +51,7 @@ class MathTestAdapter(private var equations: ArrayList<Equation>) : RecyclerView
         val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.match_item, viewGroup, false)
         val holder: MathTestAdapter.ViewHolder = ViewHolder(view)
         holder.mvEquation.apply {
-            textColor = "#black"
+            textColor = "black"
             backgroundColor = "white"
             textZoom = 70
         }
@@ -67,7 +67,7 @@ class MathTestAdapter(private var equations: ArrayList<Equation>) : RecyclerView
     override fun onBindViewHolder(viewHolder: MathTestAdapter.ViewHolder, position: Int) {
 
         viewHolder.tvEquationTitle.text = equations[position].title
-        viewHolder.mvEquation.math = equations[position].equation
+        viewHolder.mvEquation.text = equations[position].equation
         viewHolder.mvEquation.update()
 
 

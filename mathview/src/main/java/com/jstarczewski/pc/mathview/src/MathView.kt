@@ -8,6 +8,7 @@ import android.view.View
 import android.webkit.WebSettings
 import android.webkit.WebView
 import com.jstarczewski.pc.mathview.R
+import kotlin.properties.Delegates
 
 class MathView : WebView {
 
@@ -29,22 +30,35 @@ class MathView : WebView {
             setLayerType(View.LAYER_TYPE_SOFTWARE, null)
         setInitialScale(resources.displayMetrics.densityDpi)
 
-        if (attrs!=null) {
-           var math = context?.obtainStyledAttributes(attrs, R.styleable.MathView)
+        if (attrs != null) {
+            val math = context.obtainStyledAttributes(attrs, R.styleable.MathView)
             if (math.hasValue(R.styleable.MathView_text)) {
                 this.text = math.getString(R.styleable.MathView_text)
-                update()
             }
+            math.recycle()
         }
     }
 
-    var text : String? = ""
+    var text: String? by Delegates.observable<String?>("") { _, old, new ->
+        if (old != new)
+            update()
+    }
 
-    var textAlign: TextAlign = TextAlign.CENTER
+    var textAlign: TextAlign by Delegates.observable(TextAlign.CENTER) { _, old, new ->
+        if (old != new)
+            update()
+    }
 
-    var textColor: String = "Black"
 
-    var backgroundColor: String = "White"
+    var textColor: String by Delegates.observable("Black") { _, old, new ->
+        if (old != new)
+            update()
+    }
+
+    var backgroundColor: String by Delegates.observable("White") { _, old, new ->
+        if (old != new)
+            update()
+    }
 
     var textZoom: Int = 100
         set(value) {
@@ -52,7 +66,7 @@ class MathView : WebView {
         }
 
 
-    fun update() = loadDataWithBaseURL(path,
+    private fun update() = loadDataWithBaseURL(path,
             "<html><head><link rel='stylesheet' href='" + path + "jqmath-0.4.3.css'>" +
                     "<script src='" + path + "jquery-1.4.3.min.js'></script>" +
                     "<script src='" + path + "jqmath-etc-0.4.5.min.js'></script>" +

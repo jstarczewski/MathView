@@ -13,14 +13,15 @@ class EditTextExampleActivity : AppCompatActivity() {
 
         mvEditTextExample.textZoom = 70
 
+
+        mvEditTextExample.textC
+
         btShowEquation?.setOnClickListener {
 
-            mvEditTextExample.apply {
-                mvEditTextExample.math = etEquation.text.toString()
-            }.update()
+            mvEditTextExample.text = etEquation.text.toString()
 
         }
-        btShowRecyclerView?.setOnClickListener{
+        btShowRecyclerView?.setOnClickListener {
             startActivity(Intent(this, RecyclerViewExampleActivity::class.java))
         }
     }
