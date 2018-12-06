@@ -17,7 +17,7 @@ There is no need to add every special character by [Unicode](https://www.w3schoo
 ### Kotlin String interpolation
 When building equations in Kotlin sometimes double backslash is needed to escape Kotlin String Interpolation
 ```kotlin
-	var math = "$\\F&#2196{&#x2192}=ma_g$"
+	var math = "$\\F&#x2196{&#x2192}=ma_g$"
 ```
 # Demo
 ![Demo RecyclerView](/MathViewGif.gif)
@@ -33,7 +33,7 @@ repositories {
 ```
 ```groovy
 dependencies {
-	implementation 'com.github.jstarczewski:MathView:0.3.0'
+	implementation 'com.github.jstarczewski:MathView:0.4.0'
 }
 ```
 # Usage
@@ -56,7 +56,7 @@ dependencies {
         	textColor = Color.GREEN.toString()
     	    	backgroundColor = Color.WHITE
 		text = "$\\F&#x2196{&#x2192}=ma_g$"
-	}.update()
+	}
 
 ```
 ## Set text directly in xml
@@ -76,15 +76,13 @@ While setting text directly in XML, remember to encode HTML special characters, 
 There are currently five custom functions available for the user. I plan to refactor them to fit more in Kotlin style.
 
 ```kotlin
-	// Apply properties, then call update()
+	// Apply properties
         var mathView : MathView = findViewById<MathView>(R.id.mvEditTextExample)
         mathView.apply {
             text = "$\\F=10$" // sets text
             textColor = "red" // sets text color, default value is "black"
 	    backgroundColor = "blue" // sets background color, default value is "white"
-        }.update() // updates changes 
-
-	// There is no need to call update() after setting textZoom property
+        }
         mathView.textZoom = 120 // set text size based on pixel density, default value is 100 (%)
 ```
 
@@ -94,4 +92,4 @@ Back in 2016 I created an Android App which contained a lot of equations rendere
 
 
 # Contributing
-Feel free to contribute and report issues. Feedback appreciated
+Feel free to contribute and report issues. Feedback appreciated!
