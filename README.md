@@ -59,7 +59,7 @@ dependencies {
 	}
 
 ```
-## Set text directly in xml
+## Set text and textZoom directly in xml
 
 While setting text directly in XML, remember to encode HTML special characters, for example : `& = &amp;`
 
@@ -68,7 +68,8 @@ While setting text directly in XML, remember to encode HTML special characters, 
         android:id="@+id/mvTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-	app:text="$F=mg$"/>
+	app:text="$F=mg$"
+	app:textZoom="75"/>
 ```
 
 
