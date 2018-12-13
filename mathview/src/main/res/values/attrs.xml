@@ -7,6 +7,7 @@
     <attr name="textColor" format="string"/> -->
     <declare-styleable name="MathView">
         <attr name="text" format="string"/>
+        <attr name="textZoom" format="integer"/>
     </declare-styleable>
 
 </resources>
